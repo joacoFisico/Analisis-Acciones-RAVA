@@ -9,12 +9,20 @@ import urllib2
 import csv
 
 class especie:
+    '''
+    Esta clase guarda toda la informacion de los valores historicos leidos 
+    desde RAVAonline.
+    En RAVA se guardan todos los valores historicos en un csv. Esta clase los
+    lee y los guarda en distintas propiedades
+    '''
     
-    def __init__ (self, nombre, url):
+    def __init__ (self, nombre_especie, nombre = ''):
         
         self.nombre = nombre[:];
         
-        downloaded_data  = urllib2.urlopen(url);
+        self.url = 'http://www.ravaonline.com/v2/empresas/precioshistoricos.php?e=' + nombre_especie + '&csv=1';
+        
+        downloaded_data  = urllib2.urlopen(self.url);
         
         historicos = csv.DictReader(downloaded_data);
         
