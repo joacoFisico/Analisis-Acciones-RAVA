@@ -7,6 +7,7 @@ Created on Sun Dec 25 18:01:37 2016
 
 import urllib2
 import csv
+import time
 
 class especie:
     '''
@@ -35,7 +36,7 @@ class especie:
         self.media = [];
         
         for dia in historicos:
-            self.fecha.append(dia['fecha'])
+            self.fecha.append(time.strptime( dia['fecha'] , '%Y-%m-%d' ) )
             self.apertura.append( float(dia['apertura']));
             self.maximo.append( float(dia['maximo']));
             self.minimo.append( float(dia['minimo']));
