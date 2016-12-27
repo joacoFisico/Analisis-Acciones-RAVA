@@ -85,4 +85,8 @@ class especie:
         '''
         return self.volumen[-ultimos_dias : ];
     
-        
+    def getMedia(self, ultimos_dias = 0):
+        '''
+        Devuelve la media de los ultimos_dias. El default es toda la lista completa
+        '''
+        return self.media[-ultimos_dias : ];
